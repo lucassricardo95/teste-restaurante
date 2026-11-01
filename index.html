@@ -14,30 +14,39 @@
 /* PÁGINA-CARREGADORA: o sistema inteiro mora no repositório "motor" (versão escolhida em config-restaurante.js → motor).
    Este arquivo só busca a página do sistema, aponta os endereços relativos para o motor e abre. */
 (function(){
-  var R = window.RESTAURANTE || {}, M = R.motor || '';
-  try{ var fb = R.marca && R.marca.cores && R.marca.cores.fundo; if(fb && /^#[0-9a-fA-F]{6}$/.test(fb)) document.documentElement.style.background = document.body.style.background = fb; }catch(e){}
+  var R, M;
   function erro(t){
     var c = document.getElementById('c'); if(!c) return;
     c.innerHTML = '<div style="font-size:42px">⚠️</div><div><b>Não foi possível abrir o sistema.</b></div><div>' + t + '</div><button onclick="location.reload()">Tentar de novo</button>';
   }
-  if(!M || !/^https?:\/\/.+\/$/.test(M)){ erro('Falta o endereço do motor em config-restaurante.js (campo "motor").'); return; }
-  var aqui = location.href.split('?')[0].split('#')[0].replace(/[^/]*$/, '');
-  var origem = new URL(M).origin;
-  fetch(M + 'index.html').then(function(r){
-    if(!r.ok) throw new Error('HTTP ' + r.status);
-    return r.text();
-  }).then(function(html){
-    var cab = '<base href="' + M + '"><script>window.SW_URL_=' + JSON.stringify(aqui + 'sw.js') + ';window.MOTOR_URL_=' + JSON.stringify(M) + ';<\/script>';
-    html = html.replace(/<head>/i, '<head>' + cab)
-      .replace('<script src="config-restaurante.js"><\/script>', '<script src="' + aqui + 'config-restaurante.js"><\/script>')
-      .replace('<link rel="manifest" href="manifest.webmanifest">', '<link rel="manifest" href="' + aqui + 'manifest.webmanifest">')
-      .replace(/<script src="/g, '<script crossorigin="anonymous" src="')
-      .replace(/<link rel="stylesheet" href="(css\/)/g, '<link rel="stylesheet" crossorigin="anonymous" href="$1')
-      .replace(/(<meta http-equiv="Content-Security-Policy" content=")([^"]*)"/i, function(_, a, csp){
-        return a + csp.replace(/'self'/g, "'self' " + origem).replace("base-uri 'none'", 'base-uri ' + origem) + '"';
-      });
-    document.open(); document.write(html); document.close();
-  }).catch(function(e){ erro('Confira a internet. (' + (e && e.message || e) + ')'); });
+  function iniciar(){
+    R = window.RESTAURANTE || {}; M = R.motor || '';
+    try{ var fb = R.marca && R.marca.cores && R.marca.cores.fundo; if(fb && /^#[0-9a-fA-F]{6}$/.test(fb)) document.documentElement.style.background = document.body.style.background = fb; }catch(e){}
+    if(!M || !/^https?:\/\/.+\/$/.test(M)){ erro('Falta o endereço do motor em config-restaurante.js (campo "motor").'); return; }
+    var aqui = location.href.split('?')[0].split('#')[0].replace(/[^/]*$/, '');
+    var origem = new URL(M).origin;
+    fetch(M + 'index.html').then(function(r){
+      if(!r.ok) throw new Error('HTTP ' + r.status);
+      return r.text();
+    }).then(function(html){
+      var cab = '<base href="' + M + '"><script>window.SW_URL_=' + JSON.stringify(aqui + 'sw.js') + ';window.MOTOR_URL_=' + JSON.stringify(M) + ';window.RESTAURANTE=' + JSON.stringify(R).replace(/</g, '\\u003c') + ';<\/script>';
+      html = html.replace(/<head>/i, '<head>' + cab)
+        .replace('<script src="config-restaurante.js"><\/script>', '')
+        .replace('<link rel="manifest" href="manifest.webmanifest">', '<link rel="manifest" href="' + aqui + 'manifest.webmanifest">')
+        .replace(/<script src="/g, '<script crossorigin="anonymous" src="')
+        .replace(/<link rel="stylesheet" href="(css\/)/g, '<link rel="stylesheet" crossorigin="anonymous" href="$1')
+        .replace(/(<meta http-equiv="Content-Security-Policy" content=")([^"]*)"/i, function(_, a, csp){
+          return a + csp.replace(/'self'/g, "'self' " + origem).replace("base-uri 'none'", 'base-uri ' + origem) + '"';
+        });
+      document.open(); document.write(html); document.close();
+    }).catch(function(e){ erro('Confira a internet. (' + (e && e.message || e) + ')'); });
+  }
+  /* Configuração velha guardada no aparelho (sem o campo "motor"): busca de novo, sem cache, e continua. */
+  if(window.RESTAURANTE && window.RESTAURANTE.motor){ iniciar(); }
+  else {
+    fetch('config-restaurante.js', { cache: 'reload' }).then(function(r){ return r.text(); })
+      .then(function(t){ (0, eval)(t); }).catch(function(){}).then(iniciar);
+  }
 })();
 </script>
 </body>
