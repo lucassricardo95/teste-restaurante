@@ -5,6 +5,7 @@
    A marca (nome, cores, logos) pode ser ajustada depois pelo dono em Administrador → Sistema → Aparência.
    ===================================================================== */
 window.RESTAURANTE = {
+  motor: 'https://lucassricardo95.github.io/motor/estavel/',   // sistema que este restaurante usa: estavel (acompanha as atualizações) ou uma versão fixa, ex.: .../motor/v1.27/
   slug: 'teste-restaurante',
   nome: 'Restaurante Teste',
   siteUrl: 'https://lucassricardo95.github.io/teste-restaurante/',                       // endereço completo do site, com barra no fim (ex.: https://usuario.github.io/repositorio/)
