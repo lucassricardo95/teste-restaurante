@@ -74,6 +74,14 @@ const ADMIN_GRUPOS = [
   { nome:'Loja e equipe',      ico:'operacao',   subs:['ponto', 'escala', 'equipe', 'taxasentregas', 'restaurante', 'usuarios', 'notifadmin'] },
   { nome:'Sistema',            ico:'sistema',    subs:['aparencia', 'contas', 'auditoria', 'integridade'] }
 ];
+/* v1.27: módulos desligados em config-restaurante.js (ou no Painel de Revenda) escondem suas telas do Administrador. */
+(function(){
+  const M = (window.RESTAURANTE && window.RESTAURANTE.modulos) || {};
+  const OCULTAR = { ifood:['ifoodfin'], eventos:['eventos'], ponto:['ponto','escala'], mesas:['restaurante'] };
+  const fora = [];
+  Object.keys(OCULTAR).forEach(m => { if(M[m] === false) OCULTAR[m].forEach(x => fora.push(x)); });
+  if(fora.length) ADMIN_GRUPOS.forEach(g => { g.subs = g.subs.filter(x => fora.indexOf(x) < 0); });
+})();
 const ADMIN_SUBABAS = ADMIN_GRUPOS.reduce((a,g)=>a.concat(g.subs), []);
 /* a barra do Administrador existia copiada em 13 telas. Agora há UMA definição, desenhada em todas. */
 const ADMIN_SUBABAS_ROTULOS = {

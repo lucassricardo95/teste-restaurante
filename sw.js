@@ -14,10 +14,10 @@ const FOTOS = 'fotos-v1';
    A lista abaixo é gerada pelo script de selagem (selar.py) a cada entrega. */
 const CODIGO = 'codigo-v1';   // trocou o nome = todo aparelho descarta o cache de código antigo (inclusive cópia vazia)
 const LISTA = [/*LISTA-INICIO*/
-  'js/app-00-marca.js?v=2b414212',
+  'js/app-00-marca.js?v=b15dbe7a',
   'css/estilo-base.css?v=ecf263bb',
-  'js/app-01-base-e-api.js?v=f8403f78',
-  'js/app-02-abas.js?v=d5e37eda',
+  'js/app-01-base-e-api.js?v=365a9da4',
+  'js/app-02-abas.js?v=5dac5cb0',
   'js/app-03-cadastros.js?v=3c5db50a',
   'js/app-04-pedidos-entrega.js?v=a2d478eb',
   'js/app-05-avisos-push.js?v=fe880382',
@@ -81,11 +81,11 @@ const LISTA = [/*LISTA-INICIO*/
   'js/app-58-drive-direto.js?v=9e4d8a06',
   'js/app-48-armazenamento.js?v=c4160c65',
   'js/app-32-equipe.js?v=15e8d37a',
-  'css/estilo-sistema.css?v=e60448b6',
+  'css/estilo-sistema.css?v=7830c3ed',
   'js/app-59-layout.js?v=5aa543db',
   'js/app-61-custos-gerais.js?v=856d2e6d',
   'js/app-62-raio-x.js?v=a9a70e0e',
-  'js/app-65-aparencia.js?v=00000000',
+  'js/app-65-aparencia.js?v=913e4275',
   'js/app-64-promocoes-dono.js?v=fb820c1a',
   'js/app-63-promocoes-aviso.js?v=7eb16304',
   'js/app-60-navegador-app.js?v=51ce21da',

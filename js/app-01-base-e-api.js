@@ -7,7 +7,7 @@ const API_URL = (window.RESTAURANTE && window.RESTAURANTE.apiUrl) || "";   // pl
 const CONTINGENCIA_API_URL = (window.RESTAURANTE && window.RESTAURANTE.contingenciaUrl) || "";   // planilha de contingência (opcional)
 
 /* ===================== VERSÃO DO APP ===================== */
-const APP_VERSAO = '1.26';
+const APP_VERSAO = '1.27';
 const APP_ATUALIZADO_EM = '01/11/2026';
 window.APP_VERSAO = APP_VERSAO;
 
@@ -19,6 +19,14 @@ window.APP_VERSAO = APP_VERSAO;
    A seção "🆕 O que mudou" do manual é gerada daqui. */
 const APP_NOVIDADES = {
  "Admin": [
+  {
+   "v": "1.27",
+   "em": "01/11/2026",
+   "itens": [
+    "Sistema \u2192 Aparência: troque o nome, o slogan, o nome do assistente, as cores (paleta, sem códigos) e as logos do seu restaurante. A mudança vale para todos os aparelhos e pede a sua senha.",
+    "Telas de módulos que o seu restaurante não usa (iFood, ponto, eventos, mesas) ficam escondidas do Administrador."
+   ]
+  },
   {
    "v": "1.26",
    "em": "01/11/2026",
