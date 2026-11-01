@@ -9,6 +9,8 @@
   const e_ = s => (typeof escH === 'function' ? escH(s) : String(s == null ? '' : s));
   const TEMAS = [
     { id:'classico', nome:'Clássico', destaque:'#d9a21b', botao:'#8c1c13', fundo:'#14100c' },
+    { id:'creme', nome:'Creme (claro)', destaque:'#9a5b00', botao:'#b3261e', fundo:'#faf6ef' },
+    { id:'branco', nome:'Branco (claro)', destaque:'#1f5fbf', botao:'#1f5fbf', fundo:'#ffffff' },
     { id:'brasa', nome:'Brasa', destaque:'#e0b53a', botao:'#d20807', fundo:'#0b0705' },
     { id:'verde', nome:'Verde', destaque:'#7ed957', botao:'#1f8f4e', fundo:'#07120b' },
     { id:'azul', nome:'Azul', destaque:'#5aa9ff', botao:'#1f5fbf', fundo:'#07101c' },
@@ -64,7 +66,7 @@
     const av = [];
     if(contraste_(F.cores.destaque, F.cores.fundo) < 3) av.push('O <b>destaque</b> está parecido com o fundo: títulos e preços ficam difíceis de ler.');
     if(contraste_('#ffffff', F.cores.botao) < 3) av.push('O texto branco do <b>botão principal</b> fica difícil de ler nessa cor. Escolha uma cor mais escura.');
-    if(lum_(F.cores.fundo) > .25) av.push('O <b>fundo</b> está muito claro: o sistema foi feito para fundo escuro e as letras podem sumir.');
+    if(contraste_(F.cores.fundo, lum_(F.cores.fundo) > .4 ? '#000000' : '#ffffff') < 7) av.push('O <b>fundo</b> está num tom médio: as letras podem ficar difíceis de ler. Prefira um fundo bem claro ou bem escuro.');
     $('apAviso').innerHTML = av.length ? '<div class="msg warn" style="display:block;margin-top:8px;">⚠️ ' + av.join('<br>⚠️ ') + '</div>' : '';
   }
   function reduzir_(arq, max){

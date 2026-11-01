@@ -26,14 +26,17 @@
   const tinta = h => (lum(h) > .35 ? '#1a1410' : '#ffffff');
   function paleta(c){
     const d = c.destaque, b = c.botao, f = c.fundo, claro = '#ffffff', escuro = '#000000';
-    const cream = mix(claro, d, .10), eqB = mix(f, escuro, .12);
+    const modoClaro = lum(f) > .4;   /* fundo claro: a "tinta" do texto fica escura e os painéis escurecem em vez de clarear */
+    const lado = modoClaro ? escuro : claro;                 /* direção em que painéis e linhas se afastam do fundo */
+    const cream = modoClaro ? mix(escuro, d, .10) : mix(claro, d, .10);   /* cor do texto */
+    const eqB = modoClaro ? mix(f, escuro, .04) : mix(f, escuro, .12), eqC = modoClaro ? mix(escuro, d, .06) : mix(claro, d, .05);
     return {
-      '--bg': f, '--panel': mix(f, claro, .05), '--panel-2': mix(f, claro, .09), '--line': mix(f, d, .22), '--line-forte': mix(f, d, .38),
+      '--bg': f, '--panel': mix(f, lado, modoClaro ? .04 : .05), '--panel-2': mix(f, lado, modoClaro ? .08 : .09), '--line': mix(f, modoClaro ? escuro : d, modoClaro ? .16 : .22), '--line-forte': mix(f, modoClaro ? escuro : d, modoClaro ? .30 : .38),
       '--gold': d, '--gold-rgb': h2r(d).join(','), '--gold-hi': mix(d, claro, .22), '--gold-lo': mix(d, escuro, .28), '--gold-dim': mix(d, escuro, .22),
       '--red': b, '--red-rgb': h2r(b).join(','), '--red-hi': mix(b, claro, .18), '--red-dim': mix(b, escuro, .32),
-      '--on-gold': tinta(d), '--cream': cream, '--muted': mix(cream, f, .40),
-      '--eq-bg': eqB, '--eq-panel': mix(eqB, claro, .06), '--eq-panel-2': mix(eqB, claro, .10), '--eq-panel-3': mix(eqB, claro, .14),
-      '--eq-cream': mix(claro, d, .05), '--eq-muted': mix(mix(claro, d, .05), eqB, .42)
+      '--on-gold': tinta(d), '--cream': cream, '--muted': mix(cream, f, modoClaro ? .45 : .40),
+      '--eq-bg': eqB, '--eq-panel': mix(eqB, lado, modoClaro ? .05 : .06), '--eq-panel-2': mix(eqB, lado, modoClaro ? .09 : .10), '--eq-panel-3': mix(eqB, lado, modoClaro ? .13 : .14),
+      '--eq-cream': eqC, '--eq-muted': mix(eqC, eqB, .42), 'color-scheme': modoClaro ? 'light' : 'dark'
     };
   }
   function pintar(m){
