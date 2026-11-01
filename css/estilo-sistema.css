@@ -90,7 +90,7 @@ body.eq #mainWrap{ font-family:var(--font-body); color:var(--cream); }
 
 /* ---------- 5. Campos ---------- */
 :is(.eq #mainWrap, .eq:not(.vendo-cardapio) .modal-overlay) :is(input[type=text],input[type=tel],input[type=number],input[type=date],input[type=month],input[type=password],input[type=search],input[type=time],input[type=datetime-local],input[type=email],input[type=url],input:not([type]),select,textarea){
-  background-color:#100c09; border:1px solid var(--line-forte); border-radius:var(--raio-controle); color:var(--cream);
+  background-color:var(--bg-campo); border:1px solid var(--line-forte); border-radius:var(--raio-controle); color:var(--cream);
 }
 :is(.eq #mainWrap, .eq:not(.vendo-cardapio) .modal-overlay) :is(input,select,textarea):focus{
   outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(var(--gold-rgb),.18);

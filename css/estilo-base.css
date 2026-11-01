@@ -2,7 +2,7 @@
 
 /* ===== (de estilo-01-base.css) ===== */
 :root{
-    --bg:#0b0705; --bg-hero:#000; --bg-barra:#0b0705; --panel:#17100a; --panel-2:#21160d; --line:#3d2a12;
+    --bg:#0b0705; --bg-hero:#000; --bg-campo:#100c09; --bg-barra:#0b0705; --panel:#17100a; --panel-2:#21160d; --line:#3d2a12;
     --gold:#e0b53a; --gold-rgb:224,181,58; --red-rgb:210,8,7; --gold-dim:#a8832b; --red:#d20807; --red-dim:#8c0a08;
     --cream:#fff3d6; --muted:#bfae8f; --ok:#6dbb2e;
     --gold-hi:#efcb62; --gold-lo:#b2800f; --bronze:#ac5112; --orange:#fd9f00; --lime:#75d205; --red-hi:#f50905;
