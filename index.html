@@ -15,6 +15,7 @@
    Este arquivo só busca a página do sistema, aponta os endereços relativos para o motor e abre. */
 (function(){
   var R = window.RESTAURANTE || {}, M = R.motor || '';
+  try{ var fb = R.marca && R.marca.cores && R.marca.cores.fundo; if(fb && /^#[0-9a-fA-F]{6}$/.test(fb)) document.documentElement.style.background = document.body.style.background = fb; }catch(e){}
   function erro(t){
     var c = document.getElementById('c'); if(!c) return;
     c.innerHTML = '<div style="font-size:42px">⚠️</div><div><b>Não foi possível abrir o sistema.</b></div><div>' + t + '</div><button onclick="location.reload()">Tentar de novo</button>';
