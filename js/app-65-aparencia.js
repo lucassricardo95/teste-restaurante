@@ -9,7 +9,7 @@
   const e_ = s => (typeof escH === 'function' ? escH(s) : String(s == null ? '' : s));
   const TEMAS = [
     { id:'classico', nome:'Clássico', destaque:'#d9a21b', botao:'#8c1c13', fundo:'#14100c' },
-    { id:'texas', nome:'Brasa', destaque:'#e0b53a', botao:'#d20807', fundo:'#0b0705' },
+    { id:'brasa', nome:'Brasa', destaque:'#e0b53a', botao:'#d20807', fundo:'#0b0705' },
     { id:'verde', nome:'Verde', destaque:'#7ed957', botao:'#1f8f4e', fundo:'#07120b' },
     { id:'azul', nome:'Azul', destaque:'#5aa9ff', botao:'#1f5fbf', fundo:'#07101c' },
     { id:'roxo', nome:'Roxo', destaque:'#c58bff', botao:'#7b3fe4', fundo:'#10081c' },
