@@ -857,3 +857,4 @@ html,body,body *{touch-action:pan-x pan-y;}
 
 /* v1.27: logo padrão (branca) escurece em fundo claro */
 html[data-modo=claro] img[src$="img/logo.png"]{filter:invert(1);mix-blend-mode:normal;}
+html.sem-mesas #atalhoMesas{display:none !important;}

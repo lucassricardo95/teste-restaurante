@@ -80,6 +80,7 @@ const ADMIN_GRUPOS = [
   const OCULTAR = { ifood:['ifoodfin'], eventos:['eventos'], ponto:['ponto','escala'], mesas:['restaurante'] };
   const fora = [];
   Object.keys(OCULTAR).forEach(m => { if(M[m] === false) OCULTAR[m].forEach(x => fora.push(x)); });
+  if(M.mesas === false) document.documentElement.classList.add('sem-mesas');
   if(fora.length) ADMIN_GRUPOS.forEach(g => { g.subs = g.subs.filter(x => fora.indexOf(x) < 0); });
 })();
 const ADMIN_SUBABAS = ADMIN_GRUPOS.reduce((a,g)=>a.concat(g.subs), []);
