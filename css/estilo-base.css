@@ -2,7 +2,7 @@
 
 /* ===== (de estilo-01-base.css) ===== */
 :root{
-    --bg:#0b0705; --panel:#17100a; --panel-2:#21160d; --line:#3d2a12;
+    --bg:#0b0705; --bg-hero:#000; --bg-barra:#0b0705; --panel:#17100a; --panel-2:#21160d; --line:#3d2a12;
     --gold:#e0b53a; --gold-rgb:224,181,58; --red-rgb:210,8,7; --gold-dim:#a8832b; --red:#d20807; --red-dim:#8c0a08;
     --cream:#fff3d6; --muted:#bfae8f; --ok:#6dbb2e;
     --gold-hi:#efcb62; --gold-lo:#b2800f; --bronze:#ac5112; --orange:#fd9f00; --lime:#75d205; --red-hi:#f50905;
@@ -401,7 +401,7 @@ th{text-align:left;font-weight:600;font-size:var(--fs-2xs);padding:6px 5px;color
 .cz-col:nth-child(2) h3{background:linear-gradient(180deg,var(--orange),var(--bronze));}
 .cz-col:nth-child(3) h3{background:linear-gradient(180deg,#8fe21a,#4c8f05);color:#0b1a02;text-shadow:none;}
 /* ---- Cardápio público ---- */
-.cd-banner{text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(var(--gold-rgb),.16),transparent 66%),#000;border:2px solid var(--gold);border-radius:var(--raio-card);padding:16px 14px 16px;margin:12px 4px 20px;box-shadow:0 0 0 3px #000,0 0 0 5px var(--gold-dim),0 14px 30px rgba(0,0,0,.55);}
+.cd-banner{text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(var(--gold-rgb),.16),transparent 66%),var(--bg-hero);border:2px solid var(--gold);border-radius:var(--raio-card);padding:16px 14px 16px;margin:12px 4px 20px;box-shadow:0 0 0 3px var(--bg-hero),0 0 0 5px var(--gold-dim),0 14px 30px rgba(0,0,0,.55);}
 .cd-banner .kicker{display:inline-block;background:var(--red);color:#fff;border:2px solid var(--gold);border-radius:var(--raio-pilula);padding:4px 12px;font-size:var(--fs-2xs);font-weight:800;letter-spacing:.12em;}
 .cd-banner .frase{color:var(--cream);font-size:var(--fs-md);margin-top:10px;}
 .cd-categorias button{flex:0 0 auto;scroll-snap-align:start;font-size:var(--fs-sm);white-space:nowrap;cursor:pointer;background:var(--panel-2);border:1.5px solid var(--line);color:var(--cream);font-weight:800;border-radius:var(--raio-controle);padding:10px 16px;}
@@ -418,7 +418,7 @@ th{text-align:left;font-weight:600;font-size:var(--fs-2xs);padding:6px 5px;color
 .cd-qtd-ctrl button{width:var(--alvo-toque-compacto);height:var(--alvo-toque-compacto);border-radius:50%;border:1px solid var(--line);background:var(--panel-2);color:var(--cream);font-weight:700;cursor:pointer;border-color:var(--gold-dim);}
 .estrelas span.on{color:var(--gold-hi);}
 /* ---- Login ---- */
-.lock-box{width:100%;text-align:center;max-width:360px;background:radial-gradient(ellipse at 50% 0%,rgba(var(--gold-rgb),.14),transparent 64%),#000;border:2px solid var(--gold);border-radius:var(--raio-card);padding:22px 20px;box-shadow:0 0 0 3px #000,0 0 0 5px var(--gold-dim),0 18px 44px rgba(0,0,0,.7);}
+.lock-box{width:100%;text-align:center;max-width:360px;background:radial-gradient(ellipse at 50% 0%,rgba(var(--gold-rgb),.14),transparent 64%),var(--bg-hero);border:2px solid var(--gold);border-radius:var(--raio-card);padding:22px 20px;box-shadow:0 0 0 3px var(--bg-hero),0 0 0 5px var(--gold-dim),0 18px 44px rgba(0,0,0,.7);}
 .lock-box p{font-size:var(--fs-xs);margin:0 0 18px;color:var(--cream);}
 .lock-box .link-btn{background:none;border:none;font-size:var(--fs-xs);margin-top:14px;cursor:pointer;text-decoration:underline;color:var(--gold);}
 /* =====================================================================
@@ -456,7 +456,7 @@ header.brand h1{ text-shadow:none; }
 .cz-card{background:var(--panel-2);border:1px solid var(--line);padding:10px;margin-bottom:8px;border-radius:var(--raio-card);border-left:3px solid var(--gold-dim);}
 .cz-card.atrasado{border-color:#c0523f;border-left-color:var(--red-hi);}
 /* --- 3. Modais, banner e login: tirar o anel duplo amarelo --- */
-.modal-box{background:linear-gradient(180deg,var(--panel),#100a06);border-radius:var(--raio-card);border:1px solid var(--gold-dim);box-shadow:0 24px 60px rgba(0,0,0,.75);}
+.modal-box{background:linear-gradient(180deg,var(--panel),var(--panel-2));border-radius:var(--raio-card);border:1px solid var(--gold-dim);box-shadow:0 24px 60px rgba(0,0,0,.75);}
 .cd-banner,.lock-box{
   border:1px solid var(--gold-dim);
   box-shadow:0 18px 40px rgba(0,0,0,.6);
@@ -510,7 +510,7 @@ input:focus,select:focus,textarea:focus{outline-offset:1px;outline:none;border-c
 .senha-olho[aria-pressed="true"]{ color:var(--gold); }
 /* ===================== FIM DO OLHINHO ===================== */
 /* ===================== CATEGORIAS: INDICA ROLAGEM ===================== */
-.cd-categorias{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;position:sticky;top:0;z-index:20;margin-bottom:6px;scroll-snap-type:x proximity;background:rgba(11,7,5,.97);border-bottom:2px solid var(--gold-dim);padding:10px 2px;--fade-esq:0px;--fade-dir:0px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 var(--fade-esq),#000 calc(100% - var(--fade-dir)),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 var(--fade-esq),#000 calc(100% - var(--fade-dir)),transparent 100%);}
+.cd-categorias{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;position:sticky;top:0;z-index:20;margin-bottom:6px;scroll-snap-type:x proximity;background:var(--bg-barra);border-bottom:2px solid var(--gold-dim);padding:10px 2px;--fade-esq:0px;--fade-dir:0px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 var(--fade-esq),#000 calc(100% - var(--fade-dir)),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 var(--fade-esq),#000 calc(100% - var(--fade-dir)),transparent 100%);}
 /* ===================== FIM CATEGORIAS ===================== */
 /* ===================== PEDIDO DETALHADO ===================== */
 .pd-bloco{ margin-top:10px; border-top:1px solid var(--line); padding-top:8px; }
@@ -854,3 +854,6 @@ html,body,body *{touch-action:pan-x pan-y;}
 .cd-cg-falta{background:rgba(217,162,27,.10);border:1px solid rgba(217,162,27,.35);}
 #cdCompreGanhe .rx-trilho{height:8px;background:#3a2c1c;border-radius:6px;overflow:hidden;}
 #cdCompreGanhe .rx-trilho > div{height:100%;background:var(--gold,var(--gold));border-radius:6px;}
+
+/* v1.27: logo padrão (branca) escurece em fundo claro */
+html[data-modo=claro] img[src$="img/logo.png"]{filter:invert(1);mix-blend-mode:normal;}

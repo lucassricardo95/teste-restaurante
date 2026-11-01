@@ -31,7 +31,7 @@
     const cream = modoClaro ? mix(escuro, d, .10) : mix(claro, d, .10);   /* cor do texto */
     const eqB = modoClaro ? mix(f, escuro, .04) : mix(f, escuro, .12), eqC = modoClaro ? mix(escuro, d, .06) : mix(claro, d, .05);
     return {
-      '--bg': f, '--panel': mix(f, lado, modoClaro ? .04 : .05), '--panel-2': mix(f, lado, modoClaro ? .08 : .09), '--line': mix(f, modoClaro ? escuro : d, modoClaro ? .16 : .22), '--line-forte': mix(f, modoClaro ? escuro : d, modoClaro ? .30 : .38),
+      '--bg-hero': modoClaro ? mix(f, escuro, .05) : escuro, '--bg-barra': modoClaro ? mix(f, claro, .06) : mix(f, escuro, .03), '--bg': f, '--panel': mix(f, lado, modoClaro ? .04 : .05), '--panel-2': mix(f, lado, modoClaro ? .08 : .09), '--line': mix(f, modoClaro ? escuro : d, modoClaro ? .16 : .22), '--line-forte': mix(f, modoClaro ? escuro : d, modoClaro ? .30 : .38),
       '--gold': d, '--gold-rgb': h2r(d).join(','), '--gold-hi': mix(d, claro, .22), '--gold-lo': mix(d, escuro, .28), '--gold-dim': mix(d, escuro, .22),
       '--red': b, '--red-rgb': h2r(b).join(','), '--red-hi': mix(b, claro, .18), '--red-dim': mix(b, escuro, .32),
       '--on-gold': tinta(d), '--cream': cream, '--muted': mix(cream, f, modoClaro ? .45 : .40),
@@ -43,6 +43,7 @@
     let st = document.getElementById('marcaCss');
     if(!st){ st = document.createElement('style'); st.id = 'marcaCss'; (document.head || document.documentElement).appendChild(st); }
     const p = paleta(m.cores);
+    document.documentElement.setAttribute('data-modo', lum(m.cores.fundo) > .4 ? 'claro' : 'escuro');
     st.textContent = 'html:root{' + Object.keys(p).map(k => k + ':' + p[k] + ';').join('') + '}';
   }
   /* ---------- manifesto do app (nome, cor e ícone do restaurante) ---------- */
