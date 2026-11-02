@@ -19,7 +19,7 @@ window.RESTAURANTE = {
     assistente: 'Assistente',
     tema: 'classico',
     cores: { destaque: '#d9a21b', botao: '#8c1c13', fundo: '#14100c' },
-    logos: { cardapio: 'img/logo.png', impressao: '', icone: 'img/icon-512.png' }
+    logos: { cardapio: 'https://lucassricardo95.github.io/motor/estavel/img/logo.png', impressao: '', icone: 'https://lucassricardo95.github.io/motor/estavel/img/icon-512.png' }
   },
   modulos: { ifood: false, nfce: false, mercadopago: false, infinitepay: false, mesas: true, ponto: true, eventos: true, planilhas: false, ia: true }
 };
