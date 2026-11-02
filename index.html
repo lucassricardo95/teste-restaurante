@@ -48,6 +48,8 @@
         .replace(/(<meta http-equiv="Content-Security-Policy" content=")([^"]*)"/i, function(_, a, csp){
           return a + csp.replace(/'self'/g, "'self' " + origem).replace("base-uri 'none'", 'base-uri ' + origem) + '"';
         });
+      /* Logo do restaurante desde o primeiro instante: a página do motor traz uma logo padrão (img/logo.png) na abertura e no topo; troca pela logo deste restaurante antes de desenhar. */
+      try{ var lg = R.marca && R.marca.logos && R.marca.logos.cardapio; if(lg) lg = new URL(lg, aqui).href; if(lg && /^https?:\/\/[^\s"'()<>]+$/.test(lg)) html = html.split('url(img/logo.png)').join('url(' + lg + ')').split('src="img/logo.png"').join('src="' + lg + '"'); }catch(e){}
       document.open(); document.write(html); document.close();
     }).catch(function(e){ erro('Confira a internet. (' + (e && e.message || e) + ')'); });
   }
