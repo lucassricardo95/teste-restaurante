@@ -38,7 +38,8 @@
       if(!r.ok) throw new Error('HTTP ' + r.status);
       return r.text();
     }).then(function(html){
-      var cab = '<base href="' + M + '"><script>window.SW_URL_=' + JSON.stringify(aqui + 'sw.js') + ';window.MOTOR_URL_=' + JSON.stringify(M) + ';window.RESTAURANTE=' + JSON.stringify(R).replace(/</g, '\\u003c') + ';<\/script>';
+      var fundo = '#14100c'; try{ var fb2 = R.marca && R.marca.cores && R.marca.cores.fundo; if(fb2 && /^#[0-9a-fA-F]{6}$/.test(fb2)) fundo = fb2; }catch(e){}
+      var cab = '<base href="' + M + '"><style>html,body{background:' + fundo + '}</style><script>window.SW_URL_=' + JSON.stringify(aqui + 'sw.js') + ';window.MOTOR_URL_=' + JSON.stringify(M) + ';window.RESTAURANTE=' + JSON.stringify(R).replace(/</g, '\\u003c') + ';<\/script>';
       html = html.replace(/<head>/i, '<head>' + cab)
         .replace('<script src="config-restaurante.js"><\/script>', '')
         .replace('<link rel="manifest" href="manifest.webmanifest">', '<link rel="manifest" href="' + aqui + 'manifest.webmanifest">')
