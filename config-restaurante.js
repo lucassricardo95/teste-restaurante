@@ -1,25 +1,43 @@
-/* =====================================================================
-   CONFIGURAÇÃO DESTE RESTAURANTE — é o ÚNICO arquivo que muda de um restaurante para outro.
-   Quem gera este arquivo é o Painel de Revenda (aba "Ligações" → "Gerar arquivo de configuração").
-   Só entram endereços e chaves PÚBLICAS: senha e chaves secretas nunca ficam aqui.
-   A marca (nome, cores, logos) pode ser ajustada depois pelo dono em Administrador → Sistema → Aparência.
-   ===================================================================== */
+/* CONFIGURAÇÃO DE Restaurante Teste — gerado pelo Painel de Revenda em 02/11/2026, 19:27:53.
+   Só endereços e chaves PÚBLICAS. Marca e módulos também vêm do painel na hora; para mudar o resto, gere de novo. */
 window.RESTAURANTE = {
-  motor: 'https://lucassricardo95.github.io/motor/estavel/',   // sistema que este restaurante usa: estavel (acompanha as atualizações) ou uma versão fixa, ex.: .../motor/v1.27/
-  slug: 'teste-restaurante',
-  nome: 'Restaurante Teste',
-  siteUrl: 'https://lucassricardo95.github.io/teste-restaurante/',                       // endereço completo do site, com barra no fim (ex.: https://usuario.github.io/repositorio/)
-  supabaseUrl: 'https://yrbhumiybemnophsggmw.supabase.co',                   // Project URL do Supabase deste restaurante
-  supabaseChave: 'sb_publishable_SzXqXit3EsWjeuvwKQy-rA_pgmQuRqf',                 // chave pública (publishable) do Supabase
-  apiUrl: '',                        // planilha principal (Apps Script, termina em /exec) — opcional
-  contingenciaUrl: '',               // planilha de contingência (Apps Script) — opcional
-  pushChave: '',                     // chave pública dos avisos no celular — opcional
-  marca: {
-    slogan: '',
-    assistente: 'Assistente',
-    tema: 'classico',
-    cores: { destaque: '#d9a21b', botao: '#8c1c13', fundo: '#14100c' },
-    logos: { cardapio: 'https://lucassricardo95.github.io/motor/estavel/img/logo.png', impressao: '', icone: 'https://lucassricardo95.github.io/motor/estavel/img/icon-512.png' }
+  "motor": "https://lucassricardo95.github.io/motor/estavel/",
+  "slug": "teste-restaurante",
+  "nome": "Restaurante Teste",
+  "siteUrl": "https://lucassricardo95.github.io/teste-restaurante/",
+  "supabaseUrl": "https://yrbhumiybemnophsggmw.supabase.co",
+  "supabaseChave": "sb_publishable_SzXqXit3EsWjeuvwKQy-rA_pgmQuRqf",
+  "apiUrl": "",
+  "contingenciaUrl": "",
+  "contingenciaChave": "",
+  "pushChave": "BCBq2TvidQXnUaGP6vIZ7W4aYNEPHxlqiWm1cjtMT_SofB6BRZZs8CsNd66B0KupKVeDCpQukcK6DjATQK4qiM0",
+  "marca": {
+    "slogan": "",
+    "assistente": "Assistente",
+    "tema": "classico",
+    "jogos": {
+      "tema": "generico"
+    },
+    "cores": {
+      "destaque": "#d9a21b",
+      "botao": "#8c1c13",
+      "fundo": "#14100c"
+    },
+    "logos": {
+      "cardapio": "https://lucassricardo95.github.io/motor/estavel/img/logo.png",
+      "impressao": "",
+      "icone": "https://lucassricardo95.github.io/motor/estavel/img/icon-512.png"
+    }
   },
-  modulos: { ifood: false, nfce: false, mercadopago: false, infinitepay: false, mesas: true, ponto: true, eventos: true, planilhas: false, ia: true }
+  "modulos": {
+    "ia": true,
+    "nfce": false,
+    "ifood": false,
+    "mesas": true,
+    "ponto": true,
+    "eventos": true,
+    "planilhas": false,
+    "infinitepay": false,
+    "mercadopago": false
+  }
 };
